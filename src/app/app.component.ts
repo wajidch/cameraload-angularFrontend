@@ -13,12 +13,7 @@ export class AppComponent implements OnInit {
   
   constructor(private router: Router,) {
 
-    this.router.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        (<any>window).ga('set', 'page', event.urlAfterRedirects);
-        (<any>window).ga('send', 'pageview');
-      }
-    });
+  
   }
 
   ngOnInit() {

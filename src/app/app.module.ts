@@ -11,6 +11,17 @@ import { CameralistComponent } from './cameralist/cameralist.component';
 import { CameraloanComponent } from './cameraloan/cameraloan.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { ChangepasswordComponent } from './changepassword/changepassword.component';
+import { CreatenewstaffaccountComponent } from './createnewstaffaccount/createnewstaffaccount.component';
+import { EditaccessrightComponent } from './editaccessright/editaccessright.component';
+import { EditcameradetailComponent } from './editcameradetail/editcameradetail.component';
+import { EditcameraloanComponent } from './editcameraloan/editcameraloan.component';
+import { EditprofileComponent } from './editprofile/editprofile.component';
+import { HomeComponent } from './home/home.component';
+import { PostComponent } from './post/post.component';
+import { ProfileComponent } from './profile/profile.component';
+import { StaffdetailComponent } from './staffdetail/staffdetail.component';
+import { StafflistComponent } from './stafflist/stafflist.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +33,18 @@ import { FooterComponent } from './footer/footer.component';
     CameralistComponent,
     CameraloanComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    ChangepasswordComponent,
+    CreatenewstaffaccountComponent,
+    EditaccessrightComponent,
+    EditcameradetailComponent,
+    EditcameraloanComponent,
+    EditprofileComponent,
+    HomeComponent,
+    PostComponent,
+    ProfileComponent,
+    StaffdetailComponent,
+    StafflistComponent
   ],
   imports: [
     BrowserModule,
