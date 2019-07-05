@@ -7,6 +7,8 @@ import { LoginComponent } from '../app/login/login.component';
 import { SignupComponent } from '../app/signup/signup.component';
 import { AddnewcameraComponent } from './addnewcamera/addnewcamera.component';
 import { AddnewequipmentComponent } from './addnewequipment/addnewequipment.component';
+import { CameralistComponent } from './cameralist/cameralist.component';
+import { CameraloanComponent } from './cameraloan/cameraloan.component';
 
 
 
@@ -47,7 +49,24 @@ export const routes: Routes = [
     data: {
        title: 'Add Equipment'
      }
-}
+},
+{
+    path:'cameralist',
+    component:CameralistComponent,
+    data: {
+       title: 'Camera list'
+     }
+},
+{
+    path:'cameraloan',
+    component:CameraloanComponent,
+    data: {
+       title: 'Camera loan'
+     }
+},
+
+
+
  
 ];
 

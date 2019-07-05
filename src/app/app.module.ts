@@ -7,6 +7,10 @@ import { SignupComponent } from './signup/signup.component';
 import { AppRoutingModule } from './app.routing';
 import { AddnewcameraComponent } from './addnewcamera/addnewcamera.component';
 import { AddnewequipmentComponent } from './addnewequipment/addnewequipment.component';
+import { CameralistComponent } from './cameralist/cameralist.component';
+import { CameraloanComponent } from './cameraloan/cameraloan.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +18,11 @@ import { AddnewequipmentComponent } from './addnewequipment/addnewequipment.comp
     LoginComponent,
     SignupComponent,
     AddnewcameraComponent,
-    AddnewequipmentComponent
+    AddnewequipmentComponent,
+    CameralistComponent,
+    CameraloanComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
