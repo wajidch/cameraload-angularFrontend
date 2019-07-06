@@ -22,6 +22,7 @@ import { PostComponent } from './post/post.component';
 import { ProfileComponent } from './profile/profile.component';
 import { StaffdetailComponent } from './staffdetail/staffdetail.component';
 import { StafflistComponent } from './stafflist/stafflist.component';
+import { UserService } from './common/user.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,7 @@ import { StafflistComponent } from './stafflist/stafflist.component';
     AppRoutingModule,
 
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
