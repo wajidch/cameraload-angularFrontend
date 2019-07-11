@@ -13,10 +13,13 @@
 		<h2 class="">ANNOUNCEMENTS</h2>
 
 		<h3 class="heading m-top">Server Maintenance <span class="ico pull-right"><a href=""><i class="zmdi zmdi-minus zmdi-hc-fw"></i></a></span></h3>
-		<div class="box">
-			<p>There will be a server maintenance on 1 July.Servers will be down from 9.00AM to 2.00PM</p>
+		<div class="box" *ngIf='announcement.length'>
+			<p *ngFor='let anounce of announcement'>{{anounce}}</p>
 		</div>
-    <a href="post" class="post-btn pull-right">POST NEW</a>
+		<div class="box" *ngIf='!announcement.length'>
+			<p>No announcement found for today</p>
+		</div>
+    <a *ngIf='access' href="post"  class="post-btn pull-right">POST NEW</a>
 	</div>
 </section>
 </body>

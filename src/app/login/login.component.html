@@ -4,20 +4,19 @@
 
 <div class="login">
          <img class="img-responsive center-block" src="../../assets/images/logo.jpeg" width="100">
-         <form>
+         <form [formGroup]="loginForm">
             <div class="input-group">
                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-               <input id="email" type="text" class="form-control" name="email" placeholder="Email">
+               <input id="email" type="text" class="form-control" name="email" formControlName="email" placeholder="Email">
             </div>
             <div class="input-group">
                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-               <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+               <input id="password" type="password" class="form-control" formControlName="password" name="password" placeholder="Password">
             </div>
-            <label class="checkbox-bttn">Remember Me
-            <input type="checkbox" checked="checked">
-            <span class="checkmark"></span>
-            </label>
-            <a class="login-btn" href="home">Login</a>
+            <button type="button" class="btn-sign btn btn-primary login-btn" [disabled]="!loginForm.valid"
+                      (click)='login(loginForm.value)'>Sign in</button>
+
+                      <label class="error">{{message}}</label>
            
          </form>
       </div>

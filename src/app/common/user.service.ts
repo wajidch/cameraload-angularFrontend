@@ -13,4 +13,24 @@ export class UserService implements OnInit {
   ngOnInit() {
   }
 
+  login(email: string, password: string) {
+    const headers = new HttpHeaders();
+    headers.append('Content-Type', 'application/json');
+    headers.append("Access-Control-Allow-Origin", "*")
+
+    return this._http.post(environment.baseUrl + 'staff/login',
+      {
+        email: email,
+        password: password,
+
+      }, { headers: headers })
+
+  }
+
+  announcementList(){
+
+    return this._http.get(environment.baseUrl+"announcements/announcementList",{
+
+    })
+  }
 }

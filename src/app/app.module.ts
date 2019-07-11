@@ -23,6 +23,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { StaffdetailComponent } from './staffdetail/staffdetail.component';
 import { StafflistComponent } from './stafflist/stafflist.component';
 import { UserService } from './common/user.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -50,6 +53,10 @@ import { UserService } from './common/user.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
 
   ],
   providers: [UserService],
