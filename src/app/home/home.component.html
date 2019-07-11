@@ -1,4 +1,12 @@
-
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "rgba(51,51,51,0.55)"
+size = "medium"
+color = "#fff"
+type = "timer"
+[fullScreen] = "true">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>
 <body>
 <section id="section-1">
 	<div class="container">
@@ -12,11 +20,13 @@
 
 		<h2 class="">ANNOUNCEMENTS</h2>
 
-		<h3 class="heading m-top">Server Maintenance <span class="ico pull-right"><a href=""><i class="zmdi zmdi-minus zmdi-hc-fw"></i></a></span></h3>
-		<div class="box" *ngIf='announcement.length'>
-			<p *ngFor='let anounce of announcement'>{{anounce}}</p>
+		<div *ngFor='let anounce of announcement.response'>
+		<h3 class="heading m-top">{{anounce.subject}}<span class="ico pull-right"><a href=""><i class="zmdi zmdi-minus zmdi-hc-fw"></i></a></span></h3>
+		<div class="box">
+			<p >{{anounce.message}}</p>
 		</div>
-		<div class="box" *ngIf='!announcement.length'>
+	</div>
+		<div class="box" *ngIf='!announcement.response.length'>
 			<p>No announcement found for today</p>
 		</div>
     <a *ngIf='access' href="post"  class="post-btn pull-right">POST NEW</a>

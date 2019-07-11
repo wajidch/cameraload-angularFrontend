@@ -26,7 +26,9 @@ export class UserService implements OnInit {
       }, { headers: headers })
 
   }
-
+  postAnnouncemnet(val){
+    return this._http.post(environment.baseUrl + 'announcements/postAnnouncement',val)
+  }
   announcementList(){
 
     return this._http.get(environment.baseUrl+"announcements/announcementList",{

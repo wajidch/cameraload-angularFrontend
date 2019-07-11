@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import { UserService } from '../common/user.service';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class LoginComponent implements OnInit {
   loginRes;
   loginForm: FormGroup;
 
-  constructor(private router: Router,private userService:UserService) { }
+  constructor(private router: Router,private userService:UserService,private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
     this.loginForm = new FormGroup({
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
 
   
   login(val) {
+    this.spinner.show();
     this.email = val.email;
     this.password = val.password;
     this.userService.login(val.email, val.password).subscribe(
@@ -37,6 +39,8 @@ export class LoginComponent implements OnInit {
         if (this.loginRes.statusCode === 314) {
          this.message=this.loginRes.message;
         } else if (this.loginRes.statusCode === 404) {
+          this.spinner.hide();
+
             this.message='email or password incorrect';
         } else if (this.loginRes.statusCode === 200) {
           // this.preDashboard = false;
@@ -45,7 +49,7 @@ export class LoginComponent implements OnInit {
           // localStorage.setItem('token', this.loginRes.data.token);
           // localStorage.setItem('user_id', this.loginRes.data.id);
           localStorage.setItem('role', this.loginRes.response.role);
-          
+          this.spinner.hide();
             this.router.navigateByUrl('home')
          
         } 

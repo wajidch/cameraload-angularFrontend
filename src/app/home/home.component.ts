@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../common/user.service';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ export class HomeComponent implements OnInit {
 role=localStorage.getItem('role')
 access:boolean;
 announcement;
-  constructor(private userservice:UserService) { }
+  constructor(private userservice:UserService,private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
 
@@ -24,11 +25,13 @@ announcement;
 
   }
   announcemetList(){
+    this.spinner.show();
 this.userservice.announcementList().subscribe(
   res=>{
 console.log(res);
 
 this.announcement=res;
+this.spinner.hide();
   }
 )
   }

@@ -1,3 +1,12 @@
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "rgba(51,51,51,0.55)"
+size = "medium"
+color = "#fff"
+type = "timer"
+[fullScreen] = "true">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>
 <body>
     		
 <section id="section-1">
@@ -5,14 +14,14 @@
 
 		<h2 class="">POST NEW ANNOUNCEMENTS</h2>
 
-<form action="" class="form m-top">
+<form [formGroup]='announcementForm' class="form m-top">
 	<div class="wrap-input2 validate-input" data-validate="Subject is required">
-                     <input class="input2" type="text" name="">
+                     <input class="input2" type="text" name="subject" formControlName='subject'>
                      <span class="focus-input2" data-placeholder="SUBJECT"></span>
                   </div>
 
                   <div class="wrap-input2 validate-input" data-validate="Message is required">
-                     <textarea class="input2" name="message"></textarea>
+                     <textarea class="input2" name="message" name="message" formControlName='message'></textarea>
                      <span class="focus-input2" data-placeholder="MESSAGE"></span>
                   </div>
 </form>
@@ -20,7 +29,7 @@
 
 
 <ul class="list-inline pull-right">
-    <li><a  class="post-btn p-n bg-p">POST</a></li>
+    <li><a  class="post-btn p-n bg-p" (click)='postAnnouncement(announcementForm.value)' >POST</a></li>
     <li> <a  class="post-btn p-n">CANCLE</a></li>
      </ul>
 	</div>
