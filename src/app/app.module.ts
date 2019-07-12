@@ -5,17 +5,17 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { AppRoutingModule } from './app.routing';
-import { AddnewcameraComponent } from './addnewcamera/addnewcamera.component';
+import { AddequipmentComponent } from './addequipment/addequipment.component';
 import { AddnewequipmentComponent } from './addnewequipment/addnewequipment.component';
-import { CameralistComponent } from './cameralist/cameralist.component';
-import { CameraloanComponent } from './cameraloan/cameraloan.component';
+import { EquipmentlistComponent } from './equipmentlist/equipmentlist.component';
+import { EquipmentloanComponent } from './equipmentloan/equipmentloan.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { CreatenewstaffaccountComponent } from './createnewstaffaccount/createnewstaffaccount.component';
 import { EditaccessrightComponent } from './editaccessright/editaccessright.component';
-import { EditcameradetailComponent } from './editcameradetail/editcameradetail.component';
-import { EditcameraloanComponent } from './editcameraloan/editcameraloan.component';
+import { EditequipmentdetailComponent } from './editequipmentdetail/editequipmentdetail.component';
+import { EditequipmentloanComponent } from './editequipmentloan/editequipmentloan.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { HomeComponent } from './home/home.component';
 import { PostComponent } from './post/post.component';
@@ -32,17 +32,17 @@ import { NgxSpinnerModule } from "ngx-spinner";
     AppComponent,
     LoginComponent,
     SignupComponent,
-    AddnewcameraComponent,
+    AddequipmentComponent,
     AddnewequipmentComponent,
-    CameralistComponent,
-    CameraloanComponent,
+    EquipmentlistComponent,
+    EquipmentloanComponent,
     HeaderComponent,
     FooterComponent,
     ChangepasswordComponent,
     CreatenewstaffaccountComponent,
     EditaccessrightComponent,
-    EditcameradetailComponent,
-    EditcameraloanComponent,
+    EditequipmentdetailComponent,
+    EditequipmentloanComponent,
     EditprofileComponent,
     HomeComponent,
     PostComponent,

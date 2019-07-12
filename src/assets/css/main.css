@@ -14,7 +14,10 @@ a {
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
 }
-
+.success{
+  color: green;
+  font-size: larger;
+}
 a:focus {
 	outline: none !important;
 }

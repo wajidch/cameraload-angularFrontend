@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  firstName=localStorage.getItem('first_name');
+  email=localStorage.getItem('email')
   constructor() { }
 
   ngOnInit() {

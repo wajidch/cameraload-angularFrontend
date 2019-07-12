@@ -31,7 +31,7 @@ this.spinner.show();
     this.username.postAnnouncemnet(announcementObj).subscribe(res =>{
       console.log(res)
       this.spinner.hide();
-this.announcementMsg='Announcement added';
+this.announcementMsg='New Announcement added';
     })
   }
 

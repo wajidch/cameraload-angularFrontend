@@ -5,15 +5,15 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LoginComponent } from '../app/login/login.component';
 import { SignupComponent } from '../app/signup/signup.component';
-import { AddnewcameraComponent } from './addnewcamera/addnewcamera.component';
+import { AddequipmentComponent } from './addequipment/addequipment.component';
 import { AddnewequipmentComponent } from './addnewequipment/addnewequipment.component';
-import { CameralistComponent } from './cameralist/cameralist.component';
-import { CameraloanComponent } from './cameraloan/cameraloan.component';
+import { EquipmentlistComponent } from './equipmentlist/equipmentlist.component';
+import { EquipmentloanComponent } from './equipmentloan/equipmentloan.component';
 import { ChangepasswordComponent } from './changepassword/changepassword.component';
 import { CreatenewstaffaccountComponent } from './createnewstaffaccount/createnewstaffaccount.component';
 import { EditaccessrightComponent } from './editaccessright/editaccessright.component';
-import { EditcameradetailComponent } from './editcameradetail/editcameradetail.component';
-import { EditcameraloanComponent } from './editcameraloan/editcameraloan.component';
+import { EditequipmentdetailComponent } from './editequipmentdetail/editequipmentdetail.component';
+import { EditequipmentloanComponent } from './editequipmentloan/editequipmentloan.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
 import { HomeComponent } from './home/home.component';
 import { PostComponent } from './post/post.component';
@@ -47,10 +47,10 @@ export const routes: Routes = [
   },
 
  {
-     path:'addnewcamera',
-     component:AddnewcameraComponent,
+     path:'addequipment',
+     component:AddequipmentComponent,
      data: {
-        title: 'Add Camera'
+        title: 'Add Equipment'
       }
  },
 
@@ -62,17 +62,17 @@ export const routes: Routes = [
      }
 },
 {
-    path:'cameralist',
-    component:CameralistComponent,
+    path:'equipmentlist',
+    component:EquipmentlistComponent,
     data: {
-       title: 'Camera list'
+       title: 'Equipment list'
      }
 },
 {
-    path:'cameraloan',
-    component:CameraloanComponent,
+    path:'equipmentloan',
+    component:EquipmentloanComponent,
     data: {
-       title: 'Camera loan'
+       title: 'Equipment loan'
      }
 },
 
@@ -99,14 +99,14 @@ export const routes: Routes = [
 },
 {
   path:'editcameradetail',
-  component:EditcameradetailComponent,
+  component:EditequipmentdetailComponent,
   data: {
      title: 'Edit Camera Detail'
    }
 },
 {
   path:'editcameraloan',
-  component:EditcameraloanComponent,
+  component:EditequipmentloanComponent,
   data: {
      title: 'Edit Camera Loan'
    }

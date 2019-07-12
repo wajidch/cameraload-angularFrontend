@@ -1,4 +1,13 @@
 
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "rgba(51,51,51,0.55)"
+size = "medium"
+color = "#fff"
+type = "timer"
+[fullScreen] = "true">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>
 
 <body>
 <section id="section-1">
@@ -8,39 +17,33 @@
 
 		<h3 class="heading m-top">Create new staff account <span class="ico pull-right"><a ><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a></span></h3>
 		<div class="box">
-<form action="" class="form flex m-top">
+<form [formGroup]='newaccountForm' class="form flex m-top">
   <div class="wrap-input2 validate-input" data-validate="id is required">
-                     <input class="input2" type="text" name="">
-                     <span class="focus-input2" data-placeholder="STAFF ID"></span>
+                     <input class="input2" type="text" name="staff_id" formControlName='staff_id' placeholder="STAFF ID">
+                     
                   </div>
 
 
                    <div class="wrap-input2 validate-input" data-validate="email is required">
-                     <input class="input2" type="email" name="">
-                     <span class="focus-input2" data-placeholder="EMAIL"></span>
+                     <input class="input2" type="email" name="email" formControlName='email' placeholder="EMAIL">
                   </div>
 
                    <div class="wrap-input2 validate-input" data-validate="first name is required">
-                     <input class="input2" type="text" name="">
-                     <span class="focus-input2" data-placeholder="FIRST NAME"></span>
+                     <input class="input2" type="text" name="first_name" formControlName='first_name' placeholder="FIRST NAME">
                   </div>
 
                    <div class="wrap-input2 validate-input" data-validate="last name is required">
-                     <input class="input2" type="text" name="">
-                     <span class="focus-input2" data-placeholder="LAST NAME"></span>
+                     <input class="input2" type="text" name="last_name" formControlName='last_name' placeholder="LAST NAME">
                   </div>
 
                     <div class="wrap-input2 validate-input" data-validate="mobile no is required">
-                     <input class="input2" type="text" name="">
-                     <span class="focus-input2" data-placeholder="MOBILE NO"></span>
+                     <input class="input2" type="text" name="mobile_no" formControlName='mobile_no' placeholder="MOBILE NO">
                   </div>
                    <div class="wrap-input2 validate-input" data-validate="department is required">
-                     <input class="input2" type="text" name="">
-                     <span class="focus-input2" data-placeholder="DEPARTMENT"></span>
+                     <input class="input2" type="text" name="department" formControlName='department' placeholder="DEPARTMENT">
                   </div>
                    <div class="wrap-input2 validate-input" data-validate="job title is required">
-                     <input class="input2" type="text" name="">
-                     <span class="focus-input2" data-placeholder="JOB TITLE"></span>
+                     <input class="input2" type="text" name="job_title" formControlName='job_title' placeholder="JOB TITLE">
                   </div>
 
 
@@ -49,12 +52,12 @@
  <div class="col-sm-3">Admin Rights</div>
        <div class="col-sm-2">
             <label class="radio-inline">
-                 <input name="gender" id="input-gender-male" value="Male" type="radio" />Staff
+                 <input name="gender" id="input-gender-male" name="role" formControlName='role'  value="Staff" type="radio" />Staff
              </label>
         </div>
         <div class="col-sm-2">
              <label class="radio-inline">
-                  <input name="gender" id="input-gender-female" value="Female" type="radio" />Admin
+                  <input name="gender" id="input-gender-female" name="role" formControlName='role'  value="Admin" type="radio" />Admin
              </label>
          </div>
    </div>
@@ -64,13 +67,11 @@
 
 
                       <div class="wrap-input2 validate-input" data-validate="password no is required">
-                     <input class="input2" type="password" name="">
-                     <span class="focus-input2" data-placeholder="PASSWORD"></span>
+                     <input class="input2" type="password" name="password" formControlName='password' placeholder="PASSWORD">
                   </div>
 
                        <div class="wrap-input2 validate-input" data-validate="password no is required">
-                     <input class="input2" type="password" name="">
-                     <span class="focus-input2" data-placeholder="CONFIRM PASSWORD"></span>
+                     <input class="input2" type="password" name="" placeholder="CONFIRM PASSWORD">
                   </div>
 
 
@@ -78,7 +79,7 @@
                   
 
                  
-
+<label class="success">{{accountAddmsg}}</label>
                   
 </form>
 		</div>
@@ -86,7 +87,7 @@
 
 		
     <ul class="list-inline pull-right">
-    <li><a  class="post-btn p-n bg-p">Submit</a></li>
+    <li><a  class="post-btn p-n bg-p" (click)='addnewAccount(newaccountForm.value)'>Submit</a></li>
     <li> <a class="post-btn p-n">Cancel</a></li>
      
      </ul>

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddnewcameraComponent } from './addnewcamera.component';
+import { EquipmentlistComponent } from './equipmentlist.component';
 
-describe('AddnewcameraComponent', () => {
-  let component: AddnewcameraComponent;
-  let fixture: ComponentFixture<AddnewcameraComponent>;
+describe('CameralistComponent', () => {
+  let component: EquipmentlistComponent;
+  let fixture: ComponentFixture<EquipmentlistComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AddnewcameraComponent ]
+      declarations: [ EquipmentlistComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AddnewcameraComponent);
+    fixture = TestBed.createComponent(EquipmentlistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

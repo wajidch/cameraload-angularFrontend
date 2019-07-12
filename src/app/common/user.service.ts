@@ -29,9 +29,27 @@ export class UserService implements OnInit {
   postAnnouncemnet(val){
     return this._http.post(environment.baseUrl + 'announcements/postAnnouncement',val)
   }
+  addEquipment(val){
+    return this._http.post(environment.baseUrl + 'Equipment/addEquipment',val)
+
+  }
+  addnewaccount(val){
+    return this._http.post(environment.baseUrl + 'staff/createnewaccount',val)
+
+  }
   announcementList(){
 
     return this._http.get(environment.baseUrl+"announcements/announcementList",{
+
+    })
+  }
+  stafflist(){
+    return this._http.get(environment.baseUrl+"staff/stafflist",{
+
+    })
+  }
+  equipmentloanlist(){
+    return this._http.get(environment.baseUrl+"Equipment/equipmentlist",{
 
     })
   }

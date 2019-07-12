@@ -16,14 +16,16 @@ type = "timer"
 
 <form [formGroup]='announcementForm' class="form m-top">
 	<div class="wrap-input2 validate-input" data-validate="Subject is required">
-                     <input class="input2" type="text" name="subject" formControlName='subject'>
-                     <span class="focus-input2" data-placeholder="SUBJECT"></span>
+                     <input class="input2" type="text" name="subject" formControlName='subject' placeholder="SUBJECT"> 
+                     
                   </div>
 
                   <div class="wrap-input2 validate-input" data-validate="Message is required">
-                     <textarea class="input2" name="message" name="message" formControlName='message'></textarea>
-                     <span class="focus-input2" data-placeholder="MESSAGE"></span>
+                     <textarea class="input2" name="message" name="message" formControlName='message' placeholder="MESSAGE"></textarea>
+                    
                   </div>
+
+                  <label class="success">{{announcementMsg}}</label>
 </form>
 		
 

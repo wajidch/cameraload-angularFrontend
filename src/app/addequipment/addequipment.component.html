@@ -1,0 +1,107 @@
+
+
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "rgba(51,51,51,0.55)"
+size = "medium"
+color = "#fff"
+type = "timer"
+[fullScreen] = "true">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>
+<body>
+   
+            
+    <section id="section-1">
+        <div class="container">
+    
+        
+    
+            <h3 class="heading m-top">Add new Equipment loan entry <span class="ico pull-right"><a href="editprofile"><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a></span></h3>
+            <div class="box">
+    <form [formGroup]='addequipmentForm' class="form flex m-top">
+      <div class="wrap-input2 validate-input" data-validate="Serial no is required">
+                         <input class="input2" type="text" name="serialNo" formControlName='serialNo' placeholder="SERIAL NO">
+                      </div>
+    
+    
+                       <div class="wrap-input2 validate-input" data-validate="ACCESSORIES is required">
+                         <input class="input2" type="text" name="accessories1" formControlName='accessories1' placeholder="ACCESSORIES1">
+                         
+                      </div>
+    
+                       <div class="wrap-input2 validate-input" data-validate="staff id is required">
+                         <input class="input2" type="text" name="equipmentName" formControlName='equipmentName' placeholder="EQUIPMENT NAME">
+                      </div>
+    
+                       <div class="wrap-input2 validate-input" data-validate="ACCESSORIES is required">
+                         <input class="input2" type="text" name="accessories2" formControlName='accessories2' placeholder="ACCESSORIES2">
+                      </div>
+    
+                        <div class="wrap-input2 validate-input" data-validate="device is required">
+                         <input class="input2" type="text" name="device1" formControlName='device1' placeholder="DEVICE1">
+                      </div>
+                       <div class="wrap-input2 validate-input" data-validate="ACCESSORIES is required">
+                         <input class="input2" type="text" name="accessories3" formControlName='accessories3' placeholder="ACCESSORIES3">
+                      </div>
+                       <div class="wrap-input2 validate-input" data-validate="device is required">
+                         <input class="input2" type="text" name="device2" formControlName='device2' placeholder="DEVICE2">
+                      </div>
+                         
+    
+                       <div class="wrap-input2 validate-input" data-validate="device is required">
+                         <input class="input2" type="text" name="device3" formControlName='device3' placeholder="DEVICE3">
+                      </div>
+    
+                        
+    
+                       <div class="wrap-input2 validate-input" data-validate="lease period is required">
+                         <input class="input2" type="text" name="leasePeriod" formControlName='leasePeriod' placeholder="lEASE PERIOD">
+                      </div>
+    
+                     
+    
+                      
+    </form>
+    <label class="success">{{addequipmentmsg}}</label>
+            </div>
+    
+    
+            
+        <ul class="list-inline pull-right">
+        <li><a  class="post-btn p-n bg-p" (click)='AddEquipment(addequipmentForm.value)'>Add</a></li>
+        <li> <a  class="post-btn p-n">Cancel</a></li>
+    
+         </ul>
+        </div>
+    </section>
+    
+    
+    
+    
+    
+    
+    
+    
+                 <!-- =========================
+        End
+    ============================== -->
+            
+            
+    
+    
+     <!-- jQuery -->
+      
+   
+        
+        
+        
+     
+    
+        <!-- Bootstrap Core JavaScript -->
+        
+        
+        
+      
+    </body>
+    
