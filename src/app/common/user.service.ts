@@ -41,6 +41,13 @@ export class UserService implements OnInit {
     return this._http.put(environment.baseUrl + 'staff/updateProfile',val)
 
   }
+  deleteEquipment(id){
+let deleteobj={
+  equipment_id:id
+}
+    return this._http.put(environment.baseUrl + 'Equipment/deleteEquipment',deleteobj)
+
+  }
   updateEquipment(val){
     return this._http.put(environment.baseUrl + 'Equipment/updateEquipment',val)
 

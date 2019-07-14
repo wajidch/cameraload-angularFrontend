@@ -37,8 +37,9 @@ type = "timer"
                           <td>{{equipment.model}}</td>
                           <td>{{equipment.equipmentType}}</td>
                           <td>{{equipment.brand}}</td>
-                          <td class="no-sort desktop" width="140"><a href="editcameradetail" class="miniLbl del-btn">Edit</a>
-                          <a  class="miniLbl del-btn">Delete</a></td>
+                          <td class="no-sort desktop" width="140">
+                             <a (click)='edit(equipment.id)' class="miniLbl del-btn">Edit</a>
+                          <a  class="miniLbl del-btn" (click)='delete(equipment.id)'>Delete</a></td>
                         </tr>
                         
                            

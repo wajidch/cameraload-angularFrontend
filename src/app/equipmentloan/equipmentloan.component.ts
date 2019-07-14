@@ -43,4 +43,18 @@ export class EquipmentloanComponent implements OnInit {
     localStorage.setItem('equipmentId',id);
 this.route.navigateByUrl('editequipmentloan');
   }
+
+  delete(id){
+    this.spinner.show();
+    console.log("delete",id);
+  
+    this.userservice.deleteEquipment(id).subscribe((res:any)=>{
+  
+      this.equipmentloanlist=[];
+  
+      console.log(res);
+      this.equipmentloanlistFn()
+      this.spinner.hide();
+    })
+  }
 }
