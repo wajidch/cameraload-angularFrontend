@@ -48,6 +48,12 @@ let deleteobj={
     return this._http.put(environment.baseUrl + 'Equipment/deleteEquipment',deleteobj)
 
   }
+
+  changePassword(obj){
+  
+    return this._http.put(environment.baseUrl + 'staff/changePassword',obj)
+
+  }
   updateEquipment(val){
     return this._http.put(environment.baseUrl + 'Equipment/updateEquipment',val)
 
