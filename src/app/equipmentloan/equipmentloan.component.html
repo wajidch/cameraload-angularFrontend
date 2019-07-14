@@ -16,7 +16,8 @@ type = "timer"
         <div class="container">
     
         
-     
+            <input class="search" type="text"  placeholder="Search..." [(ngModel)]="term">
+
     
             <h3 class="heading m-top">EQUIPMENT LOAN <span class="ico pull-right"><a ><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a></span></h3>
             <div class="box">
@@ -33,7 +34,7 @@ type = "timer"
                          </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor='let equipmentloan of equipmentloanlist'>
+                        <tr *ngFor='let equipmentloan of equipmentloanlist|filter:term'>
                           <td>{{equipmentloan.serialNo}}</td>
                           <td>{{equipmentloan.equipmentName}}</td>
                           <td>{{equipmentloan.device1}}</td>
