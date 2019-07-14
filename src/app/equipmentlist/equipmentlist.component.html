@@ -1,3 +1,14 @@
+
+
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "rgba(51,51,51,0.55)"
+size = "medium"
+color = "#fff"
+type = "timer"
+[fullScreen] = "true">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>
 <body>
    
             
@@ -14,33 +25,22 @@
                       <thead>
                          <tr>
                             <th>Model No.</th>
-                            <th>Equipment Name</th>
                             <th>Equipment Type</th>
                             <th>Brand</th>
-                            <th>Model</th>
+
                             <th>Action</th>
                             
                          </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
+                        <tr *ngFor='let equipment of equipmentlistItem'>
+                          <td>{{equipment.model}}</td>
+                          <td>{{equipment.equipmentType}}</td>
+                          <td>{{equipment.brand}}</td>
                           <td class="no-sort desktop" width="140"><a href="editcameradetail" class="miniLbl del-btn">Edit</a>
                           <a  class="miniLbl del-btn">Delete</a></td>
                         </tr>
-                         <tr>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td></td>
-                          <td class="no-sort desktop" width="140"><a href="editcameradetail" class="miniLbl del-btn">Edit</a>
-                          <a  class="miniLbl del-btn">Delete</a></td>
-                        </tr>
+                        
                            
                       </tbody>
                    </table>
@@ -50,7 +50,7 @@
     
             
         <ul class="list-inline">
-        <li><a href="addequipment" class="post-btn p-n bg-p">Add New Equipment</a></li>
+        <li><a href="addnewequipment" class="post-btn p-n bg-p">Add New Equipment</a></li>
         <li> <a  class="post-btn p-n">Upload Entry</a></li>
          
           <li class="pull-right">   <a  class="post-btn p-n">Generate Report</a></li>

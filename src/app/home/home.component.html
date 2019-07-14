@@ -20,13 +20,13 @@ type = "timer"
 
 		<h2 class="">ANNOUNCEMENTS</h2>
 
-		<div *ngFor='let anounce of announcement.response'>
+		<div *ngFor='let anounce of announcement'>
 		<h3 class="heading m-top">{{anounce.subject}}<span class="ico pull-right"><a href=""><i class="zmdi zmdi-minus zmdi-hc-fw"></i></a></span></h3>
 		<div class="box">
 			<p >{{anounce.message}}</p>
 		</div>
 	</div>
-		<div class="box" *ngIf='!announcement.response.length'>
+		<div class="box" *ngIf='!announcement.length'>
 			<p>No announcement found for today</p>
 		</div>
     <a *ngIf='access' href="post"  class="post-btn pull-right">POST NEW</a>

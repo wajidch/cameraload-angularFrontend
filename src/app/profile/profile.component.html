@@ -11,11 +11,13 @@
 		<div class="box">
 			<div class="row">
      <div class="col-md-3">
-       <img src="../../assets/images/150.png" class="img-responsive center-block img-circle" alt="">
+       <img src="../../assets/images/150.png" *ngIf="!profile_picture" class="img-responsive center-block img-circle" alt="">
+       <img src="{{imagePath}}{{profile_picture}}" *ngIf="profile_picture" class="img-responsive center-block img-circle" alt="">
+
      </div>
      <div class="col-md-9">
-       <h2>Jhon Doe</h2>
-       <p class="clr-p">Web Designer and Developer</p>
+       <h2>{{first_name}}</h2>
+       <p class="clr-p">{{job_title}}</p>
        <h3 class="m-top">About</h3>
        <hr>
         <div class="row">
@@ -23,7 +25,7 @@
                                                 <label>Staf Id</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti123</p>
+                                                <p>{{staffid}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -31,7 +33,7 @@
                                                 <label>Full Name</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>Kshiti Ghelani</p>
+                                                <p>{{first_name}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -39,7 +41,7 @@
                                                 <label>Email</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>kshitighelani@gmail.com</p>
+                                                <p>{{email}}</p>
                                             </div>
                                         </div>
                                         
@@ -48,7 +50,7 @@
                                                 <label>Department</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>IT</p>
+                                                <p>{{department}}</p>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -56,7 +58,7 @@
                                                 <label>Mobile No</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <p>123 456 7890</p>
+                                                <p>{{mobileNo}}</p>
                                             </div>
                                         </div>
                                         <br>

@@ -37,6 +37,10 @@ export class UserService implements OnInit {
     return this._http.post(environment.baseUrl + 'staff/createnewaccount',val)
 
   }
+  updateprofile(val){
+    return this._http.put(environment.baseUrl + 'staff/updateProfile',val)
+
+  }
   announcementList(){
 
     return this._http.get(environment.baseUrl+"announcements/announcementList",{

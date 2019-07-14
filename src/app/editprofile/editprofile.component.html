@@ -1,3 +1,13 @@
+
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "rgba(51,51,51,0.55)"
+size = "medium"
+color = "#fff"
+type = "timer"
+[fullScreen] = "true">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>
 <body>
     <section id="section-1">
         <div class="container">
@@ -10,42 +20,42 @@
          <div class="col-md-3">
           
              <div class="text-center">
-              <img src="../../assets/images/150.png" class="img-responsive center-block img-circle" alt="">
+              <img *ngIf="!imgURL" src="../../assets/images/150.png" class="img-responsive center-block img-circle" alt="">
+              <img  [src]="imgURL" *ngIf="imgURL" class="img-responsive center-block img-circle" alt="">
+
+             
               <h6>Upload a different photo...</h6>
               
-              <input type="file" class="form-control">
+              <input type="file" (change)='uploadImg($event)' class="form-control">
             </div>
          </div>
          <div class="col-md-9">
-         <form action="" class="form m-top">
+         <form [formGroup]='profileForm' class="form m-top">
       <div class="wrap-input2 validate-input" data-validate="Full Name is required">
-                         <input class="input2" type="text" name="name">
-                         <span class="focus-input2" data-placeholder="FULL NAME"></span>
+                         <input class="input2" type="text" name="first_name" formControlName='first_name' placeholder="FULL NAME">
+                         
                       </div>
     
     
                        <div class="wrap-input2 validate-input" data-validate="Staff Id is required">
-                         <input class="input2" type="number" name="">
-                         <span class="focus-input2" data-placeholder="STAFF ID"></span>
+                         <input class="input2" type="number"  name="staff_id" formControlName='staff_id' placeholder="STAFF ID">
                       </div>
     
                        <div class="wrap-input2 validate-input" data-validate="Department is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="DEPARMENT"></span>
+                         <input class="input2" type="text" name="department" formControlName='department' placeholder="DEPARMENT">
                       </div>
     
                        <div class="wrap-input2 validate-input" data-validate="Email is required">
-                         <input class="input2" type="email" name="email">
-                         <span class="focus-input2" data-placeholder="EMAIL"></span>
+                         <input class="input2" type="email" name="email" formControlName='email' placeholder="EMAIL">
                       </div>
     
                        <div class="wrap-input2 validate-input" data-validate="phone is required">
-                         <input class="input2" type="number" name="name">
-                         <span class="focus-input2" data-placeholder="MOBILE NUMBER"></span>
+                         <input class="input2" type="text" name="mobile_no" formControlName='mobile_no' placeholder="MOBILE NUMBER">
                       </div>
     
                       
     </form>
+    <label class="success">{{profileUpdatedMsg}}</label>
                                             <br>
                                             <br>
          </div>   
@@ -55,8 +65,8 @@
     
             
         <ul class="list-inline pull-right">
-        <li><a  class="post-btn p-n bg-p">SAVE</a></li>
-        <li> <a  class="post-btn p-n">Cancel</a></li>
+        <li><a  class="post-btn p-n bg-p" (click)='editProfile(profileForm.value)'>SAVE</a></li>
+        <li> <a href="profile"  class="post-btn p-n">Cancel</a></li>
          </ul>
         </div>
     </section>

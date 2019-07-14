@@ -27,10 +27,10 @@ announcement;
   announcemetList(){
     this.spinner.show();
 this.userservice.announcementList().subscribe(
-  res=>{
+  (res:any)=>{
 console.log(res);
 
-this.announcement=res;
+this.announcement=res.response;
 this.spinner.hide();
   }
 )

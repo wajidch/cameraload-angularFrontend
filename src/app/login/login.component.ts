@@ -47,10 +47,17 @@ export class LoginComponent implements OnInit {
          
           this.message='';
           // localStorage.setItem('token', this.loginRes.data.token);
-          // localStorage.setItem('user_id', this.loginRes.data.id);
+          localStorage.setItem('user_id', this.loginRes.response.id);
           localStorage.setItem('role', this.loginRes.response.role);
           localStorage.setItem('first_name',this.loginRes.response.first_name);
           localStorage.setItem('email',this.loginRes.response.email);
+          localStorage.setItem('mobileNo',this.loginRes.response.mobile_no);
+          localStorage.setItem('department',this.loginRes.response.department);
+          localStorage.setItem('staff_id',this.loginRes.response.staff_id);
+          localStorage.setItem('job_title',this.loginRes.response.job_title)
+          localStorage.setItem('profile_picture',this.loginRes.response.profile_picture)
+
+
 
           this.spinner.hide();
             this.router.navigateByUrl('home')

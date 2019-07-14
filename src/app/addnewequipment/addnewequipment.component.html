@@ -1,4 +1,14 @@
 
+
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "rgba(51,51,51,0.55)"
+size = "medium"
+color = "#fff"
+type = "timer"
+[fullScreen] = "true">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>
 <body>
     <section id="section-1">
         <div class="container">
@@ -7,53 +17,40 @@
     
             <h3 class="heading m-top">add new equipment <span class="ico pull-right"><a href="editprofile.html"><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a></span></h3>
             <div class="box">
-    <form action="" class="form flex m-top">
+    <form [formGroup]='newEquipmentForm' class="form flex m-top">
       <div class="wrap-input2 validate-input" data-validate="model no is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="MODEL NO"></span>
+                         <input class="input2" type="text" name="model" formControlName='model' placeholder="MODEL NO">
+                         
                       </div>
     
     
-                       <div class="wrap-input2 validate-input" data-validate="condtion is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="CONDTION"></span>
-                      </div>
-    
-                       <div class="wrap-input2 validate-input" data-validate="camera name is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="CAMERA NAME"></span>
-                      </div>
+                   
     
                        <div class="wrap-input2 validate-input" data-validate="lease status is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="LEASE STATUS"></span>
+                         <input class="input2" type="text" name="leaseStatus" formControlName='leaseStatus' placeholder="LEASE STATUS">
                       </div>
     
-                        <div class="wrap-input2 validate-input" data-validate="camera type is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="CAMERA TYPE"></span>
+                        <div class="wrap-input2 validate-input" data-validate="equipment type is required">
+                         <input class="input2" type="text" name="equipmentType" formControlName='equipmentType' placeholder="EQUIPMENT TYPE">
                       </div>
+
                        <div class="wrap-input2 validate-input" data-validate="lease period is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="LEASE PERIOD"></span>
+                         <input class="input2" type="text" name="leasePeriod" formControlName='leasePeriod' placeholder="LEASE PERIOD">
                       </div>
                        <div class="wrap-input2 validate-input" data-validate="brand is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="BRAND"></span>
+                         <input class="input2" type="text" name="brand" formControlName='brand' placeholder="BRAND">
+                        
                       </div>
                           <div class="wrap-input2 validate-input" data-validate="insurance is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="INSURANCE HISTORY"></span>
+                         <input class="input2" type="text" name="insuranceHistory" formControlName='insuranceHistory'
+                          placeholder="INSURANCE HISTORY">
                       </div>
     
-                       <div class="wrap-input2 validate-input" data-validate="model is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="MODEL"></span>
-                      </div>
+                   
     
                         <div class="wrap-input2 validate-input" data-validate="life span is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="LIFE SPAN "></span>
+                         <input class="input2" type="text" name="lifespan" formControlName='lifespan'
+                         placeholder="LIFE SPAN">
                       </div>
     
                       
@@ -62,13 +59,14 @@
     
                       
     </form>
+    <label class="success">{{addnewequipmentMsg}}</label>
             </div>
     
     
             
         <ul class="list-inline pull-right">
-        <li><a href="" class="post-btn p-n bg-p">Add</a></li>
-        <li> <a href="changepassword.html" class="post-btn p-n">Cancel</a></li>
+        <li><a  class="post-btn p-n bg-p" (click)='addEquipmentList(newEquipmentForm.value)'>Add</a></li>
+        <li> <a href="equipmentlist" class="post-btn p-n">Cancel</a></li>
         
          </ul>
         </div>
