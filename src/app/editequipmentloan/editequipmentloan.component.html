@@ -1,77 +1,60 @@
+
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "rgba(51,51,51,0.55)"
+size = "medium"
+color = "#fff"
+type = "timer"
+[fullScreen] = "true">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>
 <body>
     <section id="section-1">
         <div class="container">
     
         
     
-            <h3 class="heading m-top">Edit Camera loan <span class="ico pull-right"><a href="editprofile.html"><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a></span></h3>
+            <h3 class="heading m-top">Edit Equipment loan <span class="ico pull-right"><a><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a></span></h3>
             <div class="box">
-    <form action="" class="form flex m-top">
+    <form [formGroup]='equipmentDetailForm' class="form flex m-top">
       <div class="wrap-input2 validate-input" data-validate="Serial no is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="SERIAL NO"></span>
+                         <input class="input2" type="text" name="serialNo" formControlName='serialNo' placeholder="SERIAL NO">
                       </div>
     
     
                        <div class="wrap-input2 validate-input" data-validate="ACCESSORIES is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="ACCESSORIES1"></span>
+                         <input class="input2" type="text" name="accessories1" formControlName='accessories1' placeholder="ACCESSORIES1">
                       </div>
     
                        <div class="wrap-input2 validate-input" data-validate="staff id is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="STAFF ID"></span>
+                         <input class="input2" type="text" name="equipmentName" formControlName='equipmentName' placeholder="EQUIPMENT NAME">
                       </div>
     
-                       <div class="wrap-input2 validate-input" data-validate="ACCESSORIES is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="ACCESSORIES2"></span>
-                      </div>
+                     
     
                         <div class="wrap-input2 validate-input" data-validate="device is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="DEVICE1"></span>
+                         <input class="input2" type="text" name="device1" formControlName='device1' placeholder="DEVICE1">
                       </div>
-                       <div class="wrap-input2 validate-input" data-validate="ACCESSORIES is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="ACCESSORIES3"></span>
-                      </div>
-                       <div class="wrap-input2 validate-input" data-validate="device is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="DEVICE2"></span>
-                      </div>
-                          <div class="wrap-input2 validate-input" data-validate="ACCESSORIES is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="ACCESSORIES4"></span>
-                      </div>
+                   
     
-                       <div class="wrap-input2 validate-input" data-validate="device is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="DEVICE3"></span>
-                      </div>
-    
-                        <div class="wrap-input2 validate-input" data-validate="ACCESSORIES is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="ACCESSORIES5"></span>
-                      </div>
+                      
     
                        <div class="wrap-input2 validate-input" data-validate="lease period is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="LEASE PERIOD"></span>
+                         <input class="input2" type="text" name="leasePeriod" formControlName='leasePeriod' placeholder="LEASE PERIOD">
                       </div>
     
                      
     
                       
     </form>
+    <label class="success">{{updateequipmentMsg}}</label>
             </div>
     
     
             
         <ul class="list-inline pull-right">
-        <li><a href="" class="post-btn p-n bg-p">Save</a></li>
-        <li> <a href="changepassword.html" class="post-btn p-n">Cancel</a></li>
-          <li> <a href="changepassword.html" class="post-btn p-n">Delete</a></li>
+        <li><a class="post-btn p-n bg-p" (click)='updateEquipment(equipmentDetailForm.value)' >Save</a></li>
+        <li> <a href="equipmentloan" class="post-btn p-n">Cancel</a></li>
          </ul>
         </div>
     </section>

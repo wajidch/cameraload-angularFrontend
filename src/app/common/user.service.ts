@@ -41,9 +41,19 @@ export class UserService implements OnInit {
     return this._http.put(environment.baseUrl + 'staff/updateProfile',val)
 
   }
+  updateEquipment(val){
+    return this._http.put(environment.baseUrl + 'Equipment/updateEquipment',val)
+
+  }
   announcementList(){
 
     return this._http.get(environment.baseUrl+"announcements/announcementList",{
+
+    })
+  }
+  equipmentDetailList(obj){
+
+    return this._http.get(environment.baseUrl+"Equipment/equipmentlistdetail?equipment_id="+obj.equipment_id,{
 
     })
   }

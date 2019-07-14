@@ -98,14 +98,14 @@ export const routes: Routes = [
    }
 },
 {
-  path:'editcameradetail',
+  path:'editequipmentlistdetail',
   component:EditequipmentdetailComponent,
   data: {
      title: 'Edit Camera Detail'
    }
 },
 {
-  path:'editcameraloan',
+  path:'editequipmentloan',
   component:EditequipmentloanComponent,
   data: {
      title: 'Edit Camera Loan'
