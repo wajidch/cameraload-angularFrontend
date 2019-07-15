@@ -37,6 +37,10 @@ export class UserService implements OnInit {
     return this._http.post(environment.baseUrl + 'staff/createnewaccount',val)
 
   }
+  editaccessRight(val){
+    return this._http.put(environment.baseUrl + 'staff/editaccessright',val)
+
+  }
   updateprofile(val){
     return this._http.put(environment.baseUrl + 'staff/updateProfile',val)
 
@@ -64,9 +68,15 @@ let deleteobj={
 
     })
   }
+
   equipmentDetailList(obj){
 
     return this._http.get(environment.baseUrl+"Equipment/equipmentlistdetail?equipment_id="+obj.equipment_id,{
+
+    })
+  }
+  accessright(id){
+    return this._http.get(environment.baseUrl+"staff/accessrightlist?id="+id,{
 
     })
   }

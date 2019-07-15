@@ -37,8 +37,8 @@ type = "timer"
                           <td>{{staff.department}}</td>
                           <td>{{staff.job_title}}</td>
                           
-                          <td class="no-sort desktop" width="270"><a href="editcameradetail" class="miniLbl del-btn">View More Details</a>
-                            <a href="editaccessright" *ngIf='access' class="miniLbl del-btn">Edit Access Rights</a></td>
+                          <td class="no-sort desktop" width="270"><a (click)='detail(staff.id)' class="miniLbl del-btn">View More Details</a>
+                            <a  *ngIf='access' (click)='edit(staff.id)' class="miniLbl del-btn">Edit Access Rights</a></td>
                         </tr>
                    
     

@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../common/user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
-
+import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
+ 
 @Component({
   selector: 'app-equipmentloan',
   templateUrl: './equipmentloan.component.html',
@@ -13,9 +14,23 @@ export class EquipmentloanComponent implements OnInit {
   constructor(private userservice:UserService,private spinner: NgxSpinnerService,private route:Router) { }
 
   ngOnInit() {
-    this.equipmentloanlistFn()
+    
+    this.equipmentloanlistFn();
   }
-
+  generateReport(){
+    this.spinner.show();
+    var options = { 
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      useBom: true,
+      noDownload: false,
+      headers: ["Equipment Id","Loan Serial No", "Equipment Name", "Device1",'Accessories1'],
+      nullToEmptyString: true,
+    };
+  new Angular5Csv(this.equipmentloanlist, 'Equipment Loan Report',options);
+  this.spinner.hide();
+  }
   equipmentloanlistFn(){
     this.spinner.show();
     this.userservice.equipmentloanlist().subscribe(

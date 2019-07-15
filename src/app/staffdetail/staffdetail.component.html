@@ -7,44 +7,34 @@
 
 		<h3 class="heading m-top">staff Detail <span class="ico pull-right"><a ><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a></span></h3>
 		<div class="box">
-<form action="" class="form flex m-top">
+<form [formGroup]='staffdetailForm' class="form flex m-top">
   <div class="wrap-input2 validate-input" data-validate="id is required">
-                     <input class="input2" type="text" name="">
-                     <span class="focus-input2" data-placeholder="STAFF ID"></span>
+                     <input class="input2" type="text" name="staff_id" formControlName='staff_id' placeholder="STAFF ID" readonly>
                   </div>
 
 
                    <div class="wrap-input2 validate-input" data-validate="email is required">
-                     <input class="input2" type="email" name="">
-                     <span class="focus-input2" data-placeholder="EMAIL"></span>
+                     <input class="input2" type="email" name="email" formControlName='email' placeholder="EMAIL" readonly>
                   </div>
 
                    <div class="wrap-input2 validate-input" data-validate="first name is required">
-                     <input class="input2" type="text" name="">
-                     <span class="focus-input2" data-placeholder="FIRST NAME"></span>
+                     <input class="input2" type="text" name="first_name" formControlName='first_name' placeholder="FIRST NAME" readonly>
                   </div>
 
                    <div class="wrap-input2 validate-input" data-validate="last name is required">
-                     <input class="input2" type="text" name="">
-                     <span class="focus-input2" data-placeholder="LAST NAME"></span>
+                     <input class="input2" type="text" name="last_name" formControlName='last_name' placeholder="LAST NAME" readonly>
                   </div>
 
                     <div class="wrap-input2 validate-input" data-validate="mobile no is required">
-                     <input class="input2" type="text" name="">
-                     <span class="focus-input2" data-placeholder="MOBILE NO"></span>
+                     <input class="input2" type="text" name="mobile_no" formControlName='mobile_no' placeholder="MOBILE NO" readonly>
                   </div>
                    <div class="wrap-input2 validate-input" data-validate="department is required">
-                     <input class="input2" type="text" name="">
-                     <span class="focus-input2" data-placeholder="DEPARTMENT"></span>
+                     <input class="input2" type="text" name="department" formControlName='department' placeholder="DEPARTMENT" readonly>
                   </div>
                    <div class="wrap-input2 validate-input" data-validate="job title is required">
-                     <input class="input2" type="text" name="">
-                     <span class="focus-input2" data-placeholder="JOB TITLE"></span>
+                     <input class="input2" type="text" name="job_title" formControlName='job_title' placeholder="job_title" readonly>
                   </div>
-                      <div class="wrap-input2 validate-input" data-validate="loan serial no is required">
-                     <input class="input2" type="text" name="">
-                     <span class="focus-input2" data-placeholder="LOAN SERIAL NO"></span>
-                  </div>
+                     
 
 
 
@@ -59,9 +49,9 @@
 
 		
     <ul class="list-inline pull-right">
-    <li><a href="" class="post-btn p-n bg-p">Save</a></li>
-    <li> <a  class="post-btn p-n">Cancel</a></li>
-      <li> <a  class="post-btn p-n">Delete</a></li>
+    <!-- <li><a href="" class="post-btn p-n bg-p">Save</a></li> -->
+    <li> <a href="stafflist"  class="post-btn p-n">Back</a></li>
+      <!-- <li> <a  class="post-btn p-n">Delete</a></li> -->
      </ul>
 	</div>
 </section>

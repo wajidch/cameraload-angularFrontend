@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../common/user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stafflist',
@@ -11,7 +12,7 @@ export class StafflistComponent implements OnInit {
   role=localStorage.getItem('role')
   access:boolean;
   stafflistArray;
-  constructor(private userservice:UserService,private spinner:NgxSpinnerService) { }
+  constructor(private userservice:UserService,private spinner:NgxSpinnerService,private route:Router) { }
 
   ngOnInit() {
     if(this.role==='Admin'){
@@ -33,5 +34,14 @@ this.userservice.stafflist().subscribe(res =>{
   this.spinner.hide();
 
 })
+  }
+
+  edit(id){
+    localStorage.setItem("selectedstaffid",id);
+    this.route.navigateByUrl('editaccessright')    
+  }
+  detail(id){
+    localStorage.setItem("selectedstaffid",id);
+    this.route.navigateByUrl('staffdetail')  
   }
 }

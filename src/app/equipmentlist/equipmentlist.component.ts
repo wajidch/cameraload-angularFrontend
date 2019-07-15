@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../common/user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
+import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
 
 @Component({
   selector: 'app-equipmentlist',
@@ -16,6 +17,20 @@ equipmentlistItem=[];
     this.Equipmentlist()
   }
   
+  generateReport(){
+    this.spinner.show();
+    var options = { 
+      fieldSeparator: ',',
+      quoteStrings: '"',
+      decimalseparator: '.',
+      useBom: true,
+      noDownload: false,
+      headers: ["Equipment Id","Model No", "Equipment Type", "Brans"],
+      nullToEmptyString: true,
+    };
+  new Angular5Csv(this.equipmentlistItem, 'Equipment List Report',options);
+  this.spinner.hide();
+  }
 Equipmentlist(){
   this.spinner.show();
 this.userservice.equipmentloanlist().subscribe((res:any)=>{

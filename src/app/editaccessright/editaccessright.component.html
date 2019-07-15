@@ -1,3 +1,13 @@
+
+<ngx-spinner
+bdOpacity = 0.9
+bdColor = "rgba(51,51,51,0.55)"
+size = "medium"
+color = "#fff"
+type = "timer"
+[fullScreen] = "true">
+<p style="color: white" > Loading... </p>
+</ngx-spinner>
 <body>
 
     <section id="section-1">
@@ -7,33 +17,38 @@
     
             <h3 class="heading m-top">Edit access right <span class="ico pull-right"><a><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a></span></h3>
             <div class="box">
-    <form action="" class="form flex m-top">
+    <form [formGroup]='editaccessForm' class="form flex m-top">
       <div class="wrap-input2 validate-input" data-validate="id is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="STAFF ID"></span>
+                         <input class="input2" type="text" name="staff_id" formControlName='staff_id' placeholder="STAFF ID">
                       </div>
     
     
     
                        <div class="wrap-input2 validate-input" data-validate=" name is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder=" NAME"></span>
+                         <input class="input2" type="text" name="first_name" formControlName='first_name' placeholder="FIRST NAME">
                       </div>
     
     
                         
                        <div class="wrap-input2 validate-input" data-validate="department is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="DEPARTMENT"></span>
+                         <input class="input2" type="text" name="department" formControlName='department' placeholder="DEPARTMENT">
                       </div>
                        <div class="wrap-input2 validate-input" data-validate="job title is required">
-                         <input class="input2" type="text" name="">
-                         <span class="focus-input2" data-placeholder="JOB TITLE"></span>
+                         <input class="input2" type="text" name="job_title" formControlName='job_title' placeholder="JOB TITLE">
                       </div>
     
                        <div>
-                         <h3 class="clr-p">Current Access Rights</h3>
-                            <a  class="post-btn p-n" data-toggle="modal" data-target="#myModal">Staff access</a>
+                          <h3 class="clr-p">Change Access Rights</h3>
+       <div class="col-sm-2">
+            <label class="radio-inline">
+                 <input name="gender" id="input-gender-male" name="role" formControlName='role'  value="Staff" type="radio" />Staff
+             </label>
+        </div>
+        <div class="col-sm-2">
+             <label class="radio-inline">
+                  <input name="gender" id="input-gender-female" name="role" formControlName='role'  value="Admin" type="radio" />Admin
+             </label>
+         </div>
                        </div>
     
     
@@ -49,11 +64,16 @@
     
                       
     </form>
+    <label class="success">{{accessRightMsg}}</label>
             </div>
     
     
-            
+            <ul class="list-inline pull-right">
+                <li><a  class="post-btn p-n bg-p" (click)='changeRight(editaccessForm.value)'>SAVE</a></li>
+                <li> <a href="stafflist" class="post-btn p-n">Cancel</a></li>
+                 </ul>
         </div>
+       
     </section>
     
 
