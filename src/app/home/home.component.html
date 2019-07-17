@@ -14,9 +14,9 @@ type = "timer"
 		<h2 class="">ALERTS</h2>
 		<div  *ngFor='let equipment of equipmentlistArray'>
 	
-				<h3 *ngIf='equipment.expireAlert' class="heading m-top">{{equipment.equipmentName}}<span class="ico pull-right"><a><i class="zmdi zmdi-minus zmdi-hc-fw"></i></a></span></h3>
+				<h3 *ngIf='equipment.expireAlert' class="heading m-top">{{equipment.serialNo}} {{equipment.equipmentName}}<span class="ico pull-right"><a><i class="zmdi zmdi-minus zmdi-hc-fw"></i></a></span></h3>
 		<div class="box" *ngIf='equipment.expireAlert'>
-			<p>{{equipment.equipmentName}} is expired</p>
+			<p>{{equipment.serialNo}} {{equipment.equipmentName}} is expired</p>
 		</div>
 		
 	</div>

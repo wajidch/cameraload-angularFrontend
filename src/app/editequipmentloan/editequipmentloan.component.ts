@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../common/user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+import * as moment from 'moment';
+
 
 @Component({
   selector: 'app-editequipmentloan',
@@ -49,7 +51,7 @@ export class EditequipmentloanComponent implements OnInit {
   
         device1: new FormControl(res.response.device1,[Validators.required]),
   
-        leasePeriod:new FormControl(res.response.leasePeriod,[Validators.required]),
+        leasePeriod:new FormControl(moment(res.response.leasePeriod).format('YYYY-MM-DD'),[Validators.required]),
   
         
   

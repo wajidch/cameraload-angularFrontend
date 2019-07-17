@@ -38,7 +38,8 @@ equipmentlistArray=[];
         this.equipmentlistArray.push({
           equipmentName:expire.equipmentName,
           expireAlert:false,
-          leasePeriod:expire.leasePeriod
+          leasePeriod:expire.leasePeriod,
+          serialNo:expire.serialNo
         })
       })
       console.log("array",this.equipmentlistArray)
