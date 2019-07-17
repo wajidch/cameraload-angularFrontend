@@ -27,10 +27,10 @@ export class StafflistComponent implements OnInit {
   stafflist(){
 this.spinner.show();
 
-this.userservice.stafflist().subscribe(res =>{
+this.userservice.stafflist().subscribe((res:any) =>{
 
   
-  this.stafflistArray=res;
+  this.stafflistArray=res.response;
   this.spinner.hide();
 
 })

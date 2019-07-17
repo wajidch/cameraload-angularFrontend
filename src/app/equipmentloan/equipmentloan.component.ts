@@ -11,6 +11,7 @@ import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
 })
 export class EquipmentloanComponent implements OnInit {
   equipmentloanlist=[];
+  csvRecords=[]
   constructor(private userservice:UserService,private spinner: NgxSpinnerService,private route:Router) { }
 
   ngOnInit() {
@@ -25,11 +26,58 @@ export class EquipmentloanComponent implements OnInit {
       decimalseparator: '.',
       useBom: true,
       noDownload: false,
-      headers: ["Equipment Id","Loan Serial No", "Equipment Name", "Device1",'Accessories1'],
+      headers: ["Equipment_Id","Loan_Serial_No", "Equipment_Name", "Device1",'Accessories1'],
       nullToEmptyString: true,
     };
   new Angular5Csv(this.equipmentloanlist, 'Equipment Loan Report',options);
   this.spinner.hide();
+  }
+  upload(files: FileList){
+    let CSVData:any = []
+    if (files && files.length > 0) {
+      const file: File = files[0];
+      const filesize = file.size / 1000000;
+      if (filesize <= 10) {
+        console.log(file);
+       
+        const formData = new FormData();
+        formData.append('uploadCSV', file, file.name);
+        const reader: FileReader = new FileReader();
+        reader.readAsText(file);
+
+        reader.onload = (e) => {
+          const csva: any = reader.result;
+          console.log("Ssd",csva)
+          const lines = csva.split('\n');
+          const headers = lines[0].split(',');
+          for (let i = 1 ; i < lines.length; i++) {
+            const obj = {
+             
+            };
+            const currentline = lines[i].split(',');
+            for (let j = 0 ; j < headers.length; j++) {
+              console.log(obj[headers[j]])
+              obj[headers[j]] = currentline[j];
+
+            }
+
+          
+          CSVData.push(obj)
+            console.log(CSVData)
+ 
+            this.userservice.uploadCSV(CSVData).subscribe((res:any)=>{
+
+              console.log(res)
+            })
+
+            }
+      
+            
+            
+            };
+        } 
+
+    }
   }
   equipmentloanlistFn(){
     this.spinner.show();

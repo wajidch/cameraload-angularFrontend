@@ -12,20 +12,30 @@ type = "timer"
 	<div class="container">
 
 		<h2 class="">ALERTS</h2>
+		<div  *ngFor='let equipment of equipmentlistArray'>
+	
+				<h3 *ngIf='equipment.expireAlert' class="heading m-top">{{equipment.equipmentName}}<span class="ico pull-right"><a><i class="zmdi zmdi-minus zmdi-hc-fw"></i></a></span></h3>
+		<div class="box" *ngIf='equipment.expireAlert'>
+			<p>{{equipment.equipmentName}} is expired</p>
+		</div>
+		
+	</div>
+	<h3 *ngIf='!noalert' class="heading m-top">No Expire alert<span class="ico pull-right"><a><i class="zmdi zmdi-minus zmdi-hc-fw"></i></a></span></h3>
 
-		<h3 class="heading m-top">Staff 1032 Loan <span class="ico pull-right"><a href=""><i class="zmdi zmdi-minus zmdi-hc-fw"></i></a></span></h3>
-		<div class="box">
-			<p>Customer 1032's Camera loan is expiring soon</p>
+		<div class="box" *ngIf='!noalert'>
+			<p>No expire alert for now</p>
 		</div>
 
 		<h2 class="">ANNOUNCEMENTS</h2>
 
 		<div *ngFor='let anounce of announcement'>
-		<h3 class="heading m-top">{{anounce.subject}}<span class="ico pull-right"><a href=""><i class="zmdi zmdi-minus zmdi-hc-fw"></i></a></span></h3>
+		<h3 class="heading m-top">{{anounce.subject}}<span class="ico pull-right"><a><i class="zmdi zmdi-minus zmdi-hc-fw"></i></a></span></h3>
 		<div class="box">
 			<p >{{anounce.message}}</p>
 		</div>
 	</div>
+	<h3 class="heading m-top" *ngIf='!announcement.length'>No announcement for Today<span class="ico pull-right"><a><i class="zmdi zmdi-minus zmdi-hc-fw"></i></a></span></h3>
+
 		<div class="box" *ngIf='!announcement.length'>
 			<p>No announcement found for today</p>
 		</div>

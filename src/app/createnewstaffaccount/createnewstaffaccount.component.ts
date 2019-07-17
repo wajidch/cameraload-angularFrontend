@@ -12,6 +12,8 @@ export class CreatenewstaffaccountComponent implements OnInit {
 
   newaccountForm:FormGroup
   accountAddmsg: string;
+  passwordNotMatched:string;
+  alreadyRecord: string;
   constructor(private userservice:UserService,private spinner:NgxSpinnerService) { }
 
   ngOnInit() {
@@ -30,6 +32,8 @@ export class CreatenewstaffaccountComponent implements OnInit {
 
       role: new FormControl('',[Validators.required]),
       password:new FormControl('',[Validators.required]),
+      confrimpassword:new FormControl('',[Validators.required]),
+
 
       
 
@@ -40,11 +44,32 @@ export class CreatenewstaffaccountComponent implements OnInit {
   }
   addnewAccount(val){
 this.spinner.show();
-    this.userservice.addnewaccount(val).subscribe(res =>{
+if(val.password!=val.confrimpassword){
+  this.passwordNotMatched='Password not matched';
+  this.accountAddmsg='';
+  this.alreadyRecord='';
+  this.spinner.hide();
 
-this.accountAddmsg='New Account Created';
+}
+else{
+    this.userservice.addnewaccount(val).subscribe((res:any) =>{
+
+      console.log("ss",val.password,val.confrimpassword);
+      if(res.statusCode===420){
+        this.passwordNotMatched='';
+        this.accountAddmsg='';
+        this.alreadyRecord='This user already register with us'
+        this.spinner.hide();
+      }
+     
+     else{
+       this.passwordNotMatched='';
+       this.alreadyRecord='';
+       this.accountAddmsg='New Account Created';
+       this.spinner.hide();
+     }
       this.spinner.hide();
 
     })
-  }
+  }}
 }

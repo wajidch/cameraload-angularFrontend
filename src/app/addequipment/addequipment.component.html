@@ -17,7 +17,7 @@ type = "timer"
     
         
     
-            <h3 class="heading m-top">Add new Equipment loan entry <span class="ico pull-right"><a href="editprofile"><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a></span></h3>
+            <h3 class="heading m-top">Add new Equipment loan entry <span class="ico pull-right"><a ><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a></span></h3>
             <div class="box">
     <form [formGroup]='addequipmentForm' class="form flex m-top">
       <div class="wrap-input2 validate-input" data-validate="Serial no is required">
@@ -56,7 +56,7 @@ type = "timer"
                         
     
                        <div class="wrap-input2 validate-input" data-validate="lease period is required">
-                         <input class="input2" type="text" name="leasePeriod" formControlName='leasePeriod' placeholder="lEASE PERIOD">
+                         <input class="input2" type="date" name="leasePeriod" formControlName='leasePeriod' placeholder="lEASE PERIOD">
                       </div>
     
                      
@@ -69,8 +69,10 @@ type = "timer"
     
             
         <ul class="list-inline pull-right">
-        <li><a  class="post-btn p-n bg-p" (click)='AddEquipment(addequipmentForm.value)'>Add</a></li>
-        <li> <a  class="post-btn p-n">Cancel</a></li>
+      
+         <button id='btn' class="post-btn p-n bg-p"   [disabled]="!addequipmentForm.valid" (click)='AddEquipment(addequipmentForm.value)'>Add</button>
+        
+         <li> <a href="equipmentloan"  class="post-btn p-n">Cancel</a></li>
     
          </ul>
         </div>

@@ -15,7 +15,7 @@ type = "timer"
     
         
     
-            <h3 class="heading m-top">add new equipment <span class="ico pull-right"><a href="editprofile.html"><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a></span></h3>
+            <h3 class="heading m-top">add new equipment <span class="ico pull-right"><a><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a></span></h3>
             <div class="box">
     <form [formGroup]='newEquipmentForm' class="form flex m-top">
       <div class="wrap-input2 validate-input" data-validate="model no is required">
@@ -35,7 +35,7 @@ type = "timer"
                       </div>
 
                        <div class="wrap-input2 validate-input" data-validate="lease period is required">
-                         <input class="input2" type="text" name="leasePeriod" formControlName='leasePeriod' placeholder="LEASE PERIOD">
+                         <input class="input2" type="date" name="leasePeriod" formControlName='leasePeriod' placeholder="LEASE PERIOD">
                       </div>
                        <div class="wrap-input2 validate-input" data-validate="brand is required">
                          <input class="input2" type="text" name="brand" formControlName='brand' placeholder="BRAND">
@@ -65,7 +65,7 @@ type = "timer"
     
             
         <ul class="list-inline pull-right">
-        <li><a  class="post-btn p-n bg-p" (click)='addEquipmentList(newEquipmentForm.value)'>Add</a></li>
+        <li><a  class="post-btn p-n bg-p"  (click)='addEquipmentList(newEquipmentForm.value)'>Add</a></li>
         <li> <a href="equipmentlist" class="post-btn p-n">Cancel</a></li>
         
          </ul>

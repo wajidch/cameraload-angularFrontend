@@ -9,7 +9,8 @@ type = "timer"
 <p style="color: white" > Loading... </p>
 </ngx-spinner>
 <body id="login-section">
-
+   <!-- <span class="help-block" style="color:red" *ngIf="loginForm.controls['password'].hasError('required')">
+      Password is required</span> -->
 <div class="login">
          <img class="img-responsive center-block" src="../../assets/images/logo.jpeg" width="100">
          <form [formGroup]="loginForm">
