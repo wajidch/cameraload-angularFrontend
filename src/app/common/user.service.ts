@@ -33,8 +33,18 @@ export class UserService implements OnInit {
     return this._http.post(environment.baseUrl + 'Equipment/addEquipment',val)
 
   }
-  uploadCSV(csvdata){
-    return this._http.post(environment.baseUrl + 'upload/uploadCSV',csvdata)
+  uploadloanCSV(csvdata){
+    let csvobj={
+      fileName:csvdata
+    }
+    return this._http.post(environment.baseUrl + 'upload/uploadLoanCSV',csvobj)
+
+  }
+  uploadlistCSV(csvdata){
+    let csvobj={
+      fileName:csvdata
+    }
+    return this._http.post(environment.baseUrl + 'upload/uploadListCSV',csvobj)
 
   }
   addnewaccount(val){

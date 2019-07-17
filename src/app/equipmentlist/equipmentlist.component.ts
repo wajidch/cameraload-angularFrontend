@@ -3,6 +3,8 @@ import { UserService } from '../common/user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-equipmentlist',
@@ -11,7 +13,9 @@ import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
 })
 export class EquipmentlistComponent implements OnInit {
 equipmentlistItem=[];
-  constructor(private userservice:UserService,private spinner:NgxSpinnerService,private route:Router) { }
+  csvFile: any;
+  constructor(private userservice:UserService,private spinner:NgxSpinnerService,
+    private route:Router,private _http: HttpClient) { }
 
   ngOnInit() {
     this.Equipmentlist()
@@ -30,6 +34,48 @@ equipmentlistItem=[];
     };
   new Angular5Csv(this.equipmentlistItem, 'Equipment List Report',options);
   this.spinner.hide();
+  }
+
+  upload(event){
+    this.spinner.show();
+    if (event && event.target.files.length > 0) {
+      const headers = new HttpHeaders();
+      headers.append('Content-Type', 'multipart/*');
+      const file = event.target.files[0];
+      console.log(file);
+      console.log('filesize', file.size / 1000000);
+      const filesize = file.size / 1000000;
+      const type = file.type;
+   
+        const formData = new FormData();
+        formData.append('file', file, file.name);
+        const reader = new FileReader();
+        reader.onload = (value: any) => {
+          //this.imgURL = value.target.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        this._http.post(environment.baseUrl + 'upload', formData,
+          { headers: headers }).subscribe(
+            (res: any) => {
+                console.log("res", res)
+                this.csvFile = res.fileName
+               
+
+                this.userservice.uploadlistCSV(this.csvFile).subscribe((res:any)=>{
+                  console.log(res)
+                  location.reload();
+
+this.spinner.hide();
+
+                })
+              }
+            
+          );
+
+
+
+      
+    }
   }
 Equipmentlist(){
   this.spinner.show();

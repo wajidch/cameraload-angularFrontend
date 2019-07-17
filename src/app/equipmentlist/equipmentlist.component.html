@@ -53,8 +53,8 @@ type = "timer"
             
         <ul class="list-inline">
         <li><a href="addnewequipment" class="post-btn p-n bg-p">Add New Equipment</a></li>
-        <!-- <li> <a  class="post-btn p-n">Upload Entry</a></li> -->
-         
+        <li><input type="file" (change)='upload($event)' #filecsv style="display: none">
+         <a (click)="filecsv.click()" class="post-btn p-n">Upload Entry</a></li>         
           <li class="pull-right">   <a (click)='generateReport()'  class="post-btn p-n">Generate Report</a></li>
          </ul>
     

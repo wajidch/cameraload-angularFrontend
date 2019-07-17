@@ -3,7 +3,9 @@ import { UserService } from '../common/user.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
- 
+import { environment } from '../../environments/environment';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 @Component({
   selector: 'app-equipmentloan',
   templateUrl: './equipmentloan.component.html',
@@ -12,7 +14,9 @@ import { Angular5Csv } from 'angular5-csv/dist/Angular5-csv';
 export class EquipmentloanComponent implements OnInit {
   equipmentloanlist=[];
   csvRecords=[]
-  constructor(private userservice:UserService,private spinner: NgxSpinnerService,private route:Router) { }
+  csvFile: any;
+  dataImported: string;
+  constructor(private userservice:UserService,private spinner: NgxSpinnerService,private route:Router,private _http: HttpClient) { }
 
   ngOnInit() {
     
@@ -32,51 +36,45 @@ export class EquipmentloanComponent implements OnInit {
   new Angular5Csv(this.equipmentloanlist, 'Equipment Loan Report',options);
   this.spinner.hide();
   }
-  upload(files: FileList){
-    let CSVData:any = []
-    if (files && files.length > 0) {
-      const file: File = files[0];
+  upload(event){
+    this.spinner.show();
+    if (event && event.target.files.length > 0) {
+      const headers = new HttpHeaders();
+      headers.append('Content-Type', 'multipart/*');
+      const file = event.target.files[0];
+      console.log(file);
+      console.log('filesize', file.size / 1000000);
       const filesize = file.size / 1000000;
-      if (filesize <= 10) {
-        console.log(file);
-       
+      const type = file.type;
+   
         const formData = new FormData();
-        formData.append('uploadCSV', file, file.name);
-        const reader: FileReader = new FileReader();
-        reader.readAsText(file);
+        formData.append('file', file, file.name);
+        const reader = new FileReader();
+        reader.onload = (value: any) => {
+          //this.imgURL = value.target.result;
+        }
+        reader.readAsDataURL(event.target.files[0]);
+        this._http.post(environment.baseUrl + 'upload', formData,
+          { headers: headers }).subscribe(
+            (res: any) => {
+                console.log("res", res)
+                this.csvFile = res.fileName
+               
 
-        reader.onload = (e) => {
-          const csva: any = reader.result;
-          console.log("Ssd",csva)
-          const lines = csva.split('\n');
-          const headers = lines[0].split(',');
-          for (let i = 1 ; i < lines.length; i++) {
-            const obj = {
-             
-            };
-            const currentline = lines[i].split(',');
-            for (let j = 0 ; j < headers.length; j++) {
-              console.log(obj[headers[j]])
-              obj[headers[j]] = currentline[j];
+                this.userservice.uploadloanCSV(this.csvFile).subscribe((res:any)=>{
+                  console.log(res)
+                  location.reload();
 
-            }
+this.spinner.hide();
 
-          
-          CSVData.push(obj)
-            console.log(CSVData)
- 
-            this.userservice.uploadCSV(CSVData).subscribe((res:any)=>{
+                })
+              }
+            
+          );
 
-              console.log(res)
-            })
 
-            }
+
       
-            
-            
-            };
-        } 
-
     }
   }
   equipmentloanlistFn(){
