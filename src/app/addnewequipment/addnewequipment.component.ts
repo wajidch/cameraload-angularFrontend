@@ -17,7 +17,6 @@ addnewequipmentMsg:string;
     this.newEquipmentForm = new FormGroup({
       model: new FormControl('',[Validators.required]),
       leaseStatus: new FormControl('',[Validators.required]),
-      equipmentName: new FormControl('',[Validators.required]),
 
       equipmentType: new FormControl('',[Validators.required]),
 

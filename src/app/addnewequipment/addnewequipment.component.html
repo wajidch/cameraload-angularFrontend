@@ -65,7 +65,9 @@ type = "timer"
     
             
         <ul class="list-inline pull-right">
-        <li><a  class="post-btn p-n bg-p"  (click)='addEquipmentList(newEquipmentForm.value)'>Add</a></li>
+          
+        <li><button id='btn' class="post-btn p-n bg-p" [disabled]="!newEquipmentForm.valid" (click)='addEquipmentList(newEquipmentForm.value)'>Add</button>
+          <!-- <a  class="post-btn p-n bg-p"  (click)='addEquipmentList(newEquipmentForm.value)'>Add</a></li> --></li>
         <li> <a href="equipmentlist" class="post-btn p-n">Cancel</a></li>
         
          </ul>
