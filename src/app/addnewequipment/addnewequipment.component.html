@@ -18,6 +18,9 @@ type = "timer"
             <h3 class="heading m-top">add new equipment <span class="ico pull-right"><a><i class="zmdi zmdi-edit zmdi-hc-fw"></i></a></span></h3>
             <div class="box">
     <form [formGroup]='newEquipmentForm' class="form flex m-top">
+        <div class="wrap-input2 validate-input" data-validate="Serial no is required">
+            <input class="input2" type="text" name="serialNo" formControlName='serialNo' placeholder="SERIAL NO">
+         </div>
       <div class="wrap-input2 validate-input" data-validate="model no is required">
                          <input class="input2" type="text" name="model" formControlName='model' placeholder="MODEL NO">
                          
@@ -33,7 +36,9 @@ type = "timer"
                         <div class="wrap-input2 validate-input" data-validate="equipment type is required">
                          <input class="input2" type="text" name="equipmentType" formControlName='equipmentType' placeholder="EQUIPMENT TYPE">
                       </div>
-
+                      <div class="wrap-input2 validate-input" data-validate="staff id is required">
+                        <input class="input2" type="text" name="equipmentName" formControlName='equipmentName' placeholder="EQUIPMENT NAME">
+                     </div>
                        <div class="wrap-input2 validate-input" data-validate="lease period is required">
                          <input class="input2" type="date" name="leasePeriod" formControlName='leasePeriod' placeholder="LEASE PERIOD">
                       </div>
